@@ -4,7 +4,7 @@ load javascript after page loaded
 
 ### Usage
 
-	<slowscript src="test.js"></slowscript>
+	<slowscript src="test.js" stylesrc="test-style.css"></slowscript>
 	<script src="slowscript.min.js"></script>
 
 ### On AMD ( Example with RequireJS )
