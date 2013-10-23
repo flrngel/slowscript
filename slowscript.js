@@ -19,16 +19,6 @@
 						document.body.appendChild(element);
 					}
 				}
-
-				var stylesrc=tag.getAttribute("stylesrc");
-				var style_element=document.createElement("link");
-				if( stylesrc ){
-					style_element.setAttribute("rel","stylesheet");
-					style_element.setAttribute("href",stylesrc);
-					if( document.head ){
-						document.head.appendChild(style_element);
-					}
-				}
 			}
 		};
 
