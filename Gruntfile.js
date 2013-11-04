@@ -20,11 +20,21 @@ module.exports = function(grunt) {
 				dest: 'build/<%= pkg.name %>.min.js'
 			}
 		},
+		copy: {
+			main: {
+				expand: true,
+				cwd: 'build/'	,
+				src: ['slowscript.js','slowscript.min.js'],
+				dest: 'test/',
+				filter: 'isFile'
+			}
+		},
 		clean: ["build/*"]
 	});
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', ['concat','uglify']);
+	grunt.registerTask('default', ['concat','uglify','copy']);
 };

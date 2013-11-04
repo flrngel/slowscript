@@ -8,6 +8,21 @@
 
 		slowscript.prototype.process=function(){
 			var tags=document.getElementsByTagName("slowscript");
+			if( tags.length == 0 ) tags=[];
+			
+			// for W3C Validation
+			var script_tags=document.getElementsByTagName("script");
+
+			for(var i=0;i<script_tags.length;i++){
+				var tag=script_tags[i];
+
+				if( tag.getAttribute("type") == "text/slowscript"
+				 || tag.getAttribute("type") == "text/javascript-slow"
+				 || tag.getAttribute("type") == "text/javascript-slowscript"	){
+					 tags.push(tag);
+				}
+			}
+
 			for(var i=0;i<tags.length;i++){
 				var tag=tags[i];
 
