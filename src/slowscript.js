@@ -30,10 +30,14 @@
 				var element=document.createElement("script");
 				if( src ){
 					element.setAttribute("src",src);
+					element.setAttribute("data-comment","slowscript-excuted");
 					if( document.body ){
 						document.body.appendChild(element);
 					}
 				}
+
+				console.log(tag);
+				tag.remove();
 			}
 		};
 
