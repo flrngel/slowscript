@@ -1,7 +1,8 @@
 (function(window){
 	// slowscript Definition
+	var document=window.document;
+
 	function ssDefinition(){
-		var document=window.document;
 		var slowscript=function(){
 			return new slowscript.prototype.process();
 		};
@@ -35,8 +36,6 @@
 						document.body.appendChild(element);
 					}
 				}
-
-				tag.remove();
 			}
 		};
 
@@ -49,7 +48,16 @@
 		define( "slowscript", [], ssDefinition);
 	}else{
 		// browser global
-		window.addEventListener('load',function(){
+		var obj,objevent;
+		if( window.addEventListener ){
+			obj=window.addEventListener;
+			objevent="DOMContentLoaded";
+		}else{
+			obj=window.attachEvent;
+			objevent="onload"
+		}
+
+		obj(objevent,function(){
 			window.slowscript=ssDefinition();
 			window.slowscript();
 		});
