@@ -28,9 +28,9 @@
 				var tag=tags[i];
 
 				var src=tag.getAttribute("src");
-				var src=tag.getAttribute("dsrc");
+				var dsrc=tag.getAttribute("dsrc");
 				var element=document.createElement("ascript");
-				if( dsrc )
+				if( dsrc != null )
 					src=dsrc;
 				if( src ){
 					element.setAttribute("src",src);
