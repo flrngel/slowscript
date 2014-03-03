@@ -28,7 +28,10 @@
 				var tag=tags[i];
 
 				var src=tag.getAttribute("src");
-				var element=document.createElement("script");
+				var src=tag.getAttribute("dsrc");
+				var element=document.createElement("ascript");
+				if( dsrc )
+					src=dsrc;
 				if( src ){
 					element.setAttribute("src",src);
 					element.setAttribute("data-comment","slowscript-excuted");
@@ -47,7 +50,8 @@
 	if( typeof define === "function" && define.amd ){
 		define( "slowscript", [], ssDefinition);
 	}else{
-		// browser global
+		console.log("debug");
+		// browser globala
 		var obj,objevent;
 		if( window.addEventListener ){
 			obj=window.addEventListener;
