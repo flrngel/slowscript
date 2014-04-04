@@ -173,6 +173,7 @@
 			if( src !== null ){
 				el.setAttribute("src",src);
 				el.setAttribute("data-comment","slowscript-executed");
+				tags[i].setAttribute("data-comment","slowscript-executed");
 				if( document.body ){
 					document.body.appendChild(el);
 				}
