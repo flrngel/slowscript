@@ -17,5 +17,5 @@ See more [RequireJS-example](./test/index.html)
 
 ### Development
 
-	- `npm install`
-	- `grunt`
+	npm install
+	grunt
