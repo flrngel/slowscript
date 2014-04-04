@@ -1,16 +1,16 @@
-(function(window){
+(function(window,undefined){
 	// document
 	var document=window.document;
 
 	// Singleton Design Pattern
 	var def=function(){
-		if( _h === null ){
+		if( _h === undefined ){
 			_h=new slowscript();
 		}
 		return _h;
 	};
 
-	var _h=null;
+	var _h;
 
 	// MutationListener START
 	// MutationListener code is orginally come from http://stackoverflow.com/questions/3219758/detect-changes-in-the-dom
@@ -119,6 +119,37 @@
 	// Slowscript Global Variable
 	slowscript.prototype.$global={};
 
+	// Slowscript Queue
+	slowscript.prototype.queue=function(callback){
+		var options={
+			once: false
+		};
+
+		if( this.$queue === undefined ){
+			this.$queue=[];
+		}
+		var pushflag=true;
+		if( options.once === false ){
+			// roadmap - hashing queue
+		}
+
+		if( pushflag === true ){
+			this.$queue.push(callback);
+		}
+	};
+
+	// Slowscript Queue execution
+	slowscript.prototype.queue_execute=function(){
+		var i;
+
+		if( this.$queue === undefined ) return false;
+		for(i=0;i<this.$queue.length;i++){
+			if( typeof this.$queue[i] === "function" ){
+				this.$queue[i]();
+			}
+		}
+	};
+
 	// Slowscript execution
 	slowscript.prototype.execute=function(){
 		var tags=[];
@@ -169,11 +200,26 @@
 				src=src+".js";
 			}
 
-			// finally!
+			// load script!
 			if( src !== null ){
 				el.setAttribute("src",src);
 				el.setAttribute("data-comment","slowscript-executed");
 				tags[i].setAttribute("data-comment","slowscript-executed");
+
+				// auto queue execute
+				if( el.onreadystatechange !== undefined ){
+					// handle for IE
+					el.onreadystatechange=function(){
+						if( this.readyState === "complete" ){
+							el.slowscript.prototype.queue_execute();
+							el.onreadystatechange=undefined;
+						}
+					};
+				}else{
+					el.onload=slowscript.prototype.queue_execute;
+				}
+
+				// at last!
 				if( document.body ){
 					document.body.appendChild(el);
 				}
@@ -185,7 +231,7 @@
 	//
 	// if AMD load
 	if( typeof define === "function" && define.amd ){
-		define("slowscript",[],def);
+		define("slowscript",[],new def());
 	}else{
 		// if not AMD load
 		var obj,objevent;

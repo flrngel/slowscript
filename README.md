@@ -1,20 +1,17 @@
-#slowscript
+# slowscript
 
-load javascript after page loaded
+javascript lazyloader with Mutation Detection
 
 ### Usage
 
-	<slowscript src="test.js"></slowscript>
-	<script src="slowscript.min.js"></script>
-
-also you can use ( from ~ 0.5.0, passing HTML5 Validator )
-
 	<script type="text/slowscript" src="test.js"></script>
-	<script src="slowscript.min.js"></script>
+
+	** recommend **
+	<noscript type="text/slowscript" src="test.js"></noscript>
 
 ### On AMD ( Example with RequireJS )
 
-See more [RequireJS-example](./test/require.html)
+See more [RequireJS-example](./test/index.html)
 	
 	require(['slowscript'],function(){slowscript();});
 
