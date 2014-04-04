@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 				seperator: ';'
 			},
 			dist: {
-				src: ['src/slowscript-header.js', 'src/MutationListener.js', 'src/init.js', 'src/execute.js', 'src/slowscript-footer.js'],
+				src: ['src/slowscript.js'],
 				dest: 'dist/<%= pkg.name %>.js'
 			}
 		},
