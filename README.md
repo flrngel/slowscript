@@ -20,5 +20,5 @@ See more [RequireJS-example](./test/require.html)
 
 ### Development
 
-	npm install
-	grunt
+	- `npm install`
+	- `grunt`
