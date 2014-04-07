@@ -1,3 +1,7 @@
 slowscript.queue(function(){
-	console.log("tada");
+	alert("tada");
 });
+
+setTimeout(function(){
+	slowscript.queue_execute();
+},1000);
