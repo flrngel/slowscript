@@ -7,12 +7,13 @@ javascript lazyloader with Mutation Detection
 	<script type="text/slowscript" src="test.js"></script>
 	<script type="text/slowscript" src="test"></script>
 
-	** recommend **
+** recommend **
+
 	<noscript type="text/slowscript" src="test.js"></noscript>
 
 ### On AMD ( Example with RequireJS )
 
-See more [RequireJS-example](./test/index.html)
+See more [RequireJS-example](./test/requirejs/require.html)
 	
 	require(['slowscript'],function(slowscript){
 		slowscript.execute();
