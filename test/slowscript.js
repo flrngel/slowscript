@@ -146,6 +146,7 @@
 		for(i=0;i<this.$queue.length;i++){
 			if( typeof this.$queue[i] === "function" ){
 				this.$queue[i]();
+				this.$queue.splice(i,1);
 			}
 		}
 	};
@@ -207,6 +208,8 @@
 				tags[i].setAttribute("data-comment","slowscript-executed");
 
 				// auto queue execute
+				// (block quote: ready != script fully loaded)
+				/*
 				if( el.onreadystatechange !== undefined ){
 					// handle for IE
 					el.onreadystatechange=function(){
@@ -218,6 +221,7 @@
 				}else{
 					el.onload=slowscript.prototype.queue_execute;
 				}
+			 */
 
 				// at last!
 				if( document.body ){

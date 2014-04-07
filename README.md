@@ -5,6 +5,7 @@ javascript lazyloader with Mutation Detection
 ### Usage
 
 	<script type="text/slowscript" src="test.js"></script>
+	<script type="text/slowscript" src="test"></script>
 
 	** recommend **
 	<noscript type="text/slowscript" src="test.js"></noscript>
@@ -13,7 +14,9 @@ javascript lazyloader with Mutation Detection
 
 See more [RequireJS-example](./test/index.html)
 	
-	require(['slowscript'],function(){slowscript();});
+	require(['slowscript'],function(slowscript){
+		slowscript.execute();
+	});
 
 ### Development
 
