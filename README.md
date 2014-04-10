@@ -30,6 +30,8 @@ See more [RequireJS-example](https://github.com/flrngel/slowscript/tree/master/t
 
 [AngularJS examples](https://github.com/flrngel/slowscript-angular-require-lazyload)
 
+---
+
 ## Basics
 
 `slowscript` is using singleton design pattern.
