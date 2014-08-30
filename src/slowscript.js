@@ -154,7 +154,7 @@
 	// Slowscript execution
 	slowscript.prototype.execute=function(){
 		var tags=[];
-		var tagtypes=["text/slowscript","text/javascript-slow","txet/javascript-slowscript"];
+		var tagtypes=["text/slowscript","text/javascript-slow","text/javascript-slowscript"];
 		var tmp,i,j;
 
 		// <slowscript></slowscript>
